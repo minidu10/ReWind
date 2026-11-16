@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # No lock file is committed, so dependencies are installed with npm install
+      - name: Extension tests
+        working-directory: extension
+        run: |
+          npm install
+          npm test
+
+      - name: Server tests
+        working-directory: server
+        run: |
+          npm install
+          npm test

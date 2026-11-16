@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Rewind",
+  "version": "0.1.0",
+  "description": "Records what happens in a browser tab so your AI coding assistant can see what led to a bug.",
+  "minimum_chrome_version": "120",
+  "permissions": ["debugger", "storage", "tabs"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Rewind"
+  }
+}

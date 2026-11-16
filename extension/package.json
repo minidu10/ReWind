@@ -1,0 +1,10 @@
+{
+  "name": "rewind-extension",
+  "version": "0.1.0",
+  "description": "Rewind Chrome extension. No build step and no dependencies; this file only exists so the tests can run in Node.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  }
+}

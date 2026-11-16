@@ -1,0 +1,23 @@
+{
+  "name": "rewind-mcp-server",
+  "version": "0.1.0",
+  "description": "Local MCP server for Rewind: lets an AI coding assistant ask what happened in the browser before a bug.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "rewind-mcp-server": "server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "source-map-js": "^1.2.1",
+    "ws": "^8.18.0",
+    "zod": "^3.25.0"
+  }
+}
