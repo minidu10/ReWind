@@ -68,6 +68,12 @@ npm install
 3. Click **Load unpacked** and choose the `extension/` folder of this repo.
 4. Pin the Rewind icon to the toolbar.
 
+Without git: download `rewind-extension-v<version>.zip` from the
+[Releases page](https://github.com/minidu10/ReWind/releases), unzip it, and
+choose the `rewind-extension` folder in step 3. The server still comes from
+this repo; each release also has a "Source code (zip)" download that contains
+`server/`.
+
 ### 3. Add the MCP server to your editor
 
 Use the absolute path to `server/server.js` on your machine.
@@ -247,6 +253,16 @@ cd server && npm install && npm test
 ```
 
 CI runs both suites on Node 22 and 24.
+
+### Releasing
+
+Raise `"version"` in `extension/manifest.json`, commit, and push. Then build
+the extension zip from the committed code and attach it to a release:
+
+```sh
+git archive --format=zip --prefix=rewind-extension/ -o ../rewind-extension-v0.1.0.zip HEAD:extension
+gh release create v0.1.0 ../rewind-extension-v0.1.0.zip --title "Rewind v0.1.0" --prerelease
+```
 
 ### Protocol
 
